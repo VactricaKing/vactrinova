@@ -11,27 +11,42 @@
         :root { --purple-face: #961996; --purple-border: #5e0f5e; --bg-dark: #1c1c1c; --bg-darker: #111111; --text-white: #e0e0e0; --minecraft-green: #3b8526; --minecraft-shadow: #1e4213; --status-online: #4CAF50; --status-offline: #ff5555; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* PADDING CORREGIDO: Fondo cubre todo, pero sin forzar estiramientos */
         body { background-color: var(--bg-dark); color: var(--text-white); font-family: 'Pixcon', monospace; font-size: 14px; min-height: 100vh; display: flex; flex-direction: column; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* NAVBAR */
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: var(--purple-face); border-bottom: 4px solid var(--purple-border); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); min-height: 80px; }
+        /* NAVBAR CORREGIDA (Igual a las otras secciones) */
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 1rem 2rem; 
+            background-color: var(--purple-face); 
+            border-bottom: 4px solid var(--purple-border); 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+            min-height: 80px; 
+        }
         .nav-logo img { height: 45px; width: auto; image-rendering: pixelated; }
         .nav-links { display: flex; gap: 1rem; list-style: none; }
         .nav-links a { text-transform: uppercase; font-size: 0.9rem; padding: 8px 12px; border-radius: 4px; font-weight: bold; white-space: nowrap; }
         .nav-links a:hover { background-color: rgba(0,0,0,0.2); }
         .nav-links a.active { background-color: var(--purple-border); color: #fff; box-shadow: inset 0 0 8px rgba(0,0,0,0.4); border: 2px solid #7a1e7a; }
 
-        /* CONTENEDOR PRINCIPAL (Igual estructura que los otros) */
+        /* CONTENEDOR PRINCIPAL */
         .main-container { 
             padding: 140px 1rem 2rem 1rem; 
-            width: 100%; 
+            max-width: 900px; /* Unificado con los otros archivos */
+            margin: 0 auto; 
             flex: 1; 
+            text-align: center; 
+            width: 100%; 
             display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            text-align: center;
+            flex-direction: column;
+            align-items: center;
         }
 
         .page-title { 
@@ -42,14 +57,13 @@
             line-height: 1.2; 
         }
         
-        /* WIDGET CORREGIDO: FONDO SÓLIDO Y TAMAÑO CONTROLADO */
         .server-widget { 
-            background-color: var(--bg-darker); /* FONDO GRIS SÓLIDO IGUAL QUE STAFF/RANGOS */
+            background-color: var(--bg-darker); 
             border: 4px solid var(--purple-border); 
             padding: 30px; 
             width: 100%; 
-            max-width: 600px; /* Ancho cómodo, no gigante */
-            box-shadow: 0 8px 0 #111; /* Sombra sólida igual que los otros */
+            max-width: 600px; 
+            box-shadow: 0 8px 0 #111; 
             margin: 0 auto;
         }
 
@@ -72,8 +86,6 @@
 
         .ip-box-container { background: #080808; border: 2px dashed #666; padding: 15px; cursor: pointer; transition: 0.2s; }
         .ip-box-container:active { background: #222; transform: scale(0.98); }
-        
-        /* IP TEXTO NORMAL EN PC */
         .ip-text { font-family: monospace; font-size: 1.2rem; white-space: nowrap; color: #fff; }
 
         footer { padding: 2rem; text-align: center; background-color: black; color: #a0a0a0; font-size: 0.7rem; width: 100%; }
@@ -86,11 +98,8 @@
 
             .main-container { padding-top: 160px; }
             .page-title { font-size: 1.8rem; margin-bottom: 1.5rem; }
-            
             .server-widget { padding: 20px; }
             .bedrock-btn { font-size: 0.9rem; padding: 12px; }
-            
-            /* AQUÍ ESTÁ EL TRUCO: LETRA PEQUEÑA SOLO EN MÓVIL */
             .ip-text { font-size: 0.75rem; } 
         }
     </style>
