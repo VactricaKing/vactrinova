@@ -11,35 +11,43 @@
         :root { --purple-face: #961996; --purple-border: #5e0f5e; --bg-dark: #1c1c1c; --bg-darker: #111111; --text-white: #e0e0e0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body { background-color: var(--bg-dark); color: var(--text-white); font-family: 'Pixcon', monospace; padding-top: 120px; font-size: 14px; min-height: 100vh; display: flex; flex-direction: column; }
+        body { background-color: var(--bg-dark); color: var(--text-white); font-family: 'Pixcon', monospace; font-size: 14px; min-height: 100vh; display: flex; flex-direction: column; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: var(--purple-face); border-bottom: 4px solid var(--purple-border); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); min-height: 80px; }
         .nav-logo img { height: 45px; width: auto; image-rendering: pixelated; }
-        
         .nav-links { display: flex; gap: 1rem; list-style: none; }
-        .nav-links a { 
-            text-transform: uppercase; font-size: 0.9rem; padding: 8px 12px; border-radius: 4px; font-weight: bold; 
-            white-space: nowrap;
-        }
+        .nav-links a { text-transform: uppercase; font-size: 0.9rem; padding: 8px 12px; border-radius: 4px; font-weight: bold; white-space: nowrap; }
         .nav-links a:hover { background-color: rgba(0,0,0,0.2); }
         .nav-links a.active { background-color: var(--purple-border); color: #fff; box-shadow: inset 0 0 8px rgba(0,0,0,0.4); border: 2px solid #7a1e7a; }
 
-        .main-container { padding: 2rem 1rem 0 1rem; max-width: 900px; margin: 0 auto; flex: 1; text-align: center; width: 100%; display: flex; flex-direction: column; }
+        /* CONTENEDOR EXPANDIDO CON PADDING */
+        .main-container { 
+            padding: 140px 1rem 2rem 1rem; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            flex: 1; 
+            text-align: center; 
+            width: 100%; 
+            display: flex; 
+            flex-direction: column;
+        }
+
         .page-title { font-size: 2.2rem; color: var(--purple-face); border-bottom: 4px solid var(--purple-border); display: inline-block; margin-bottom: 2rem; padding-bottom: 10px; text-transform: uppercase; text-shadow: 3px 3px 0 #000; white-space: nowrap; align-self: center; }
-        .text-content { background: var(--bg-darker); padding: 2.5rem; border: 4px solid #333; border-bottom: none; text-align: left; box-shadow: 0 8px 0 #111; flex: 1; width: 100%; }
+        
+        /* CAJITA DE TEXTO CONTENIDA (No estirada) */
+        .text-content { background: var(--bg-darker); padding: 2.5rem; border: 4px solid #333; text-align: left; box-shadow: 0 8px 0 #111; width: 100%; }
         
         footer { padding: 2rem; text-align: center; background-color: black; color: #a0a0a0; font-size: 0.7rem; width: 100%; }
 
         @media (max-width: 600px) {
             .navbar { flex-direction: column; padding: 0.8rem; gap: 0.5rem; justify-content: center; min-height: auto; }
-            .nav-logo img { height: 40px; }
             .nav-links { width: 100%; justify-content: center; gap: 5px; }
             .nav-links a { font-size: 0.7rem; padding: 6px 8px; }
             
-            body { padding-top: 140px; }
+            .main-container { padding-top: 160px; }
             .page-title { font-size: 1.5rem; }
-            .text-content { padding: 1.5rem; border: none; border-top: 4px solid #333; }
+            .text-content { padding: 1.5rem; }
         }
     </style>
 </head>
