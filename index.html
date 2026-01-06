@@ -14,31 +14,32 @@
         body { background-color: var(--bg-dark); color: var(--text-white); font-family: 'Pixcon', monospace; padding-top: 120px; font-size: 14px; min-height: 100vh; display: flex; flex-direction: column; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* NAVBAR */
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; background-color: var(--purple-face); border-bottom: 4px solid var(--purple-border); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-        .nav-logo img { height: 40px; width: auto; image-rendering: pixelated; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: var(--purple-face); border-bottom: 4px solid var(--purple-border); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); min-height: 80px; }
+        .nav-logo img { height: 45px; width: auto; image-rendering: pixelated; }
         
         .nav-links { display: flex; gap: 1rem; list-style: none; }
         .nav-links a { 
             text-transform: uppercase; font-size: 0.9rem; padding: 8px 12px; border-radius: 4px; font-weight: bold; 
-            white-space: nowrap; /* NO PARTIR TEXTO */
+            white-space: nowrap;
         }
         .nav-links a:hover { background-color: rgba(0,0,0,0.2); }
         .nav-links a.active { background-color: var(--purple-border); color: #fff; box-shadow: inset 0 0 8px rgba(0,0,0,0.4); border: 2px solid #7a1e7a; }
 
-        /* HERO */
-        .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), #2a2a2a; padding: 2rem 1rem; margin-top: -20px; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; text-transform: uppercase; text-shadow: 4px 4px 0px #000; line-height: 1.2; }
+        .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), #2a2a2a; padding: 2rem 1rem 0 1rem; margin-top: -20px; width: 100%; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 2rem; text-transform: uppercase; text-shadow: 4px 4px 0px #000; line-height: 1.2; }
         
-        /* WIDGET DEL SERVIDOR */
         .server-widget { 
             background-color: rgba(0,0,0,0.7); 
             border: 4px solid var(--purple-border); 
+            border-bottom: none;
             padding: 30px; 
             width: 100%; 
-            max-width: 850px; /* Ancho completo igual que las otras secciones */
-            margin: 2rem 0; 
-            box-shadow: 0 0 25px rgba(150, 25, 150, 0.15); 
+            max-width: 900px; 
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 -10px 25px rgba(150, 25, 150, 0.1); 
         }
 
         .server-status-container { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; background: rgba(0,0,0,0.4); padding: 10px 20px; border-radius: 6px; width: fit-content; margin-left: auto; margin-right: auto; border: 1px solid #444; }
@@ -49,13 +50,12 @@
         .status-offline .status-dot { background: var(--status-offline); box-shadow: 0 0 8px var(--status-offline); }
         .status-offline .status-text { color: var(--status-offline); }
 
-        /* BOTONES */
         .bedrock-btn { 
             display: block; width: 100%; background: var(--minecraft-green); color: white; padding: 15px; 
             font-weight: bold; text-transform: uppercase; font-size: 1.1rem;
             border: 4px solid var(--minecraft-shadow); border-top-color: #5cb842; border-left-color: #5cb842; 
             box-shadow: 0 6px 0 #152e0d; text-shadow: 2px 2px 0 #1e4213; margin-bottom: 20px; position: relative; top: 0; transition: 0.1s;
-            white-space: nowrap; /* OBLIGATORIO: UNA SOLA LÍNEA */
+            white-space: nowrap;
         }
         .bedrock-btn:active { top: 6px; box-shadow: 0 0 0 #152e0d; }
 
@@ -63,25 +63,18 @@
         .ip-box-container:active { background: #222; transform: scale(0.98); }
         .ip-text { font-family: monospace; font-size: 1.2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; }
 
-        footer { padding: 2rem; text-align: center; background-color: black; color: #a0a0a0; font-size: 0.7rem; margin-top: auto; }
+        footer { padding: 2rem; text-align: center; background-color: black; color: #a0a0a0; font-size: 0.7rem; width: 100%; }
 
-        /* --- MÓVIL (AJUSTES DE TAMAÑO) --- */
         @media (max-width: 600px) {
-            .navbar { flex-direction: column; padding: 0.5rem; gap: 0.5rem; }
-            .nav-logo img { height: 35px; }
-            
-            /* MENU EN HILERA (Horizontal) */
+            .navbar { flex-direction: column; padding: 0.8rem; gap: 0.5rem; justify-content: center; min-height: auto; }
+            .nav-logo img { height: 40px; }
             .nav-links { width: 100%; justify-content: center; gap: 5px; }
-            .nav-links a { font-size: 0.7rem; padding: 6px 8px; } /* Letra pequeña para que quepan */
-
-            .hero h1 { font-size: 1.8rem; }
-            
-            /* Botones más pequeños pero en una línea */
-            .bedrock-btn { font-size: 0.8rem; padding: 12px; }
-            .ip-text { font-size: 0.9rem; }
-            
-            body { padding-top: 130px; }
-            .server-widget { padding: 15px; }
+            .nav-links a { font-size: 0.7rem; padding: 6px 8px; }
+            .hero h1 { font-size: 1.8rem; margin-bottom: 1rem; }
+            .bedrock-btn { font-size: 0.9rem; padding: 12px; }
+            .ip-text { font-size: 1rem; }
+            body { padding-top: 140px; }
+            .server-widget { padding: 20px; border: none; border-top: 4px solid var(--purple-border); }
         }
     </style>
 </head>
