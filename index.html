@@ -22,41 +22,34 @@
         .nav-links a:hover { background-color: rgba(0,0,0,0.2); }
         .nav-links a.active { background-color: var(--purple-border); color: #fff; box-shadow: inset 0 0 8px rgba(0,0,0,0.4); border: 2px solid #7a1e7a; }
 
-        /* CONTENEDOR UNIFICADO (Igual a Staff/Rangos) */
+        /* CONTENEDOR PRINCIPAL REVERTIDO PARA EVITAR ERRORES DE AJUSTE */
         .main-container { 
             padding: 140px 1rem 2rem 1rem; 
-            max-width: 900px; 
-            margin: 0 auto; 
-            flex: 1; 
-            text-align: center; 
             width: 100%; 
+            flex: 1; 
             display: flex; 
-            flex-direction: column;
+            flex-direction: column; 
+            align-items: center; 
+            text-align: center;
         }
 
-        /* TÍTULO UNIFICADO */
         .page-title { 
-            font-size: 2.2rem; 
-            color: var(--purple-face); 
-            border-bottom: 4px solid var(--purple-border); 
-            display: inline-block; 
+            font-size: 2.5rem; 
             margin-bottom: 2rem; 
-            padding-bottom: 10px; 
             text-transform: uppercase; 
-            text-shadow: 3px 3px 0 #000; 
-            white-space: nowrap; 
-            align-self: center; 
+            text-shadow: 4px 4px 0px #000; 
+            line-height: 1.2; 
         }
         
-        /* CAJA DE CONTENIDO (Basada en text-content de las otras páginas) */
+        /* WIDGET REVERTIDO A TU ESTILO ORIGINAL */
         .server-widget { 
             background-color: var(--bg-darker);
-            border: 4px solid #333; 
-            padding: 2.5rem; 
+            border: 4px solid var(--purple-border); 
+            padding: 30px; 
             width: 100%; 
+            max-width: 600px;
             box-shadow: 0 8px 0 #111;
             margin: 0 auto;
-            text-align: center;
         }
 
         .server-status-container { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; background: rgba(0,0,0,0.4); padding: 10px 20px; border-radius: 6px; width: fit-content; margin-left: auto; margin-right: auto; border: 1px solid #444; }
@@ -67,12 +60,12 @@
         .status-offline .status-dot { background: var(--status-offline); box-shadow: 0 0 8px var(--status-offline); }
         .status-offline .status-text { color: var(--status-offline); }
 
+        /* BOTÓN CORREGIDO (Sin nowrap forzado que corte el texto) */
         .bedrock-btn { 
             display: block; width: 100%; background: var(--minecraft-green); color: white; padding: 15px; 
             font-weight: bold; text-transform: uppercase; font-size: 1.1rem;
             border: 4px solid var(--minecraft-shadow); border-top-color: #5cb842; border-left-color: #5cb842; 
             box-shadow: 0 6px 0 #152e0d; text-shadow: 2px 2px 0 #1e4213; margin-bottom: 20px; position: relative; top: 0; transition: 0.1s;
-            white-space: nowrap;
         }
         .bedrock-btn:active { top: 6px; box-shadow: 0 0 0 #152e0d; }
 
@@ -88,8 +81,9 @@
             .nav-links a { font-size: 0.7rem; padding: 6px 8px; }
 
             .main-container { padding-top: 160px; }
-            .page-title { font-size: 1.5rem; }
-            .server-widget { padding: 1.5rem; }
+            .page-title { font-size: 1.8rem; margin-bottom: 1.5rem; }
+            .server-widget { padding: 20px; }
+            .bedrock-btn { font-size: 0.9rem; padding: 12px; }
             .ip-text { font-size: 0.75rem; } 
         }
     </style>
@@ -106,7 +100,7 @@
     </nav>
 
     <div class="main-container">
-        <h1 class="page-title">Bienvenido</h1>
+        <h1 class="page-title">Bienvenido a<br>Vactrinova</h1>
         
         <div class="server-widget">
             <p style="font-size: 1rem; color:#ccc; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Versión 1.21.11</p>
