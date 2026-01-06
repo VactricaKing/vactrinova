@@ -7,85 +7,48 @@
     <title>Vactrinova Server | Rangos</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        /* --- ESTILOS COMPARTIDOS (NO TOCAR) --- */
         @font-face { font-family: 'Pixcon'; src: url('pixcon.ttf') format('truetype'); }
-        :root {
-            --purple-face: #961996; --purple-border: #5e0f5e; --purple-shadow: #2e052e;
-            --bg-dark: #1c1c1c; --bg-darker: #111111; --text-white: #e0e0e0; --text-gray: #a0a0a0;
-        }
+        :root { --purple-face: #961996; --purple-border: #5e0f5e; --bg-dark: #1c1c1c; --bg-darker: #111111; --text-white: #e0e0e0; --minecraft-green: #3b8526; --status-online: #4CAF50; --status-offline: #ff5555; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg-dark); color: var(--text-white); font-family: 'Pixcon', monospace; line-height: 1.6; font-size: 14px; overflow-x: hidden; }
+        body { background-color: var(--bg-dark); color: var(--text-white); font-family: 'Pixcon', monospace; padding-top: 80px; font-size: 14px; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
-
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; background-color: var(--purple-face); border-bottom: 3px solid var(--purple-border); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
-        .nav-logo img { height: 40px; width: auto; display: block; image-rendering: pixelated; }
-        .nav-links { display: flex; gap: 1.5rem; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; background-color: var(--purple-face); border-bottom: 3px solid var(--purple-border); position: fixed; top: 0; left: 0; width: 100%; z-index: 100; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .nav-logo img { height: 40px; width: auto; image-rendering: pixelated; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
         .nav-links a { text-transform: uppercase; font-size: 0.9rem; padding: 5px 10px; border-radius: 4px; }
-        .nav-links a:hover { background-color: rgba(0,0,0,0.2); color: #fff; }
+        .nav-links a:hover { background-color: rgba(0,0,0,0.2); }
         .nav-links a.active { background-color: var(--purple-border); color: #fff; box-shadow: inset 0 0 5px rgba(0,0,0,0.3); }
-
-        /* --- CONTENEDOR DE PÁGINA SIMPLE --- */
-        .page-container {
-            min-height: 80vh;
-            padding: 4rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .page-title {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            text-shadow: 3px 3px 0px var(--purple-face);
-            border-bottom: 4px solid var(--purple-border);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .text-content {
-            background-color: var(--bg-darker);
-            padding: 2rem;
-            border: 2px solid #333;
-            text-align: left;
-            margin-bottom: 2rem;
-        }
         
-        footer { padding: 2rem; text-align: center; background-color: black; color: var(--text-gray); font-size: 0.7rem; }
-        @media (max-width: 600px) { .navbar { flex-direction: column; padding: 1rem; gap: 1rem; } .nav-logo img { height: 45px; } }
+        .main-container { padding: 2rem; max-width: 900px; margin: 0 auto; min-height: 80vh; text-align: center; }
+        .page-title { font-size: 2rem; color: var(--purple-face); border-bottom: 2px solid var(--purple-border); display: inline-block; margin-bottom: 2rem; }
+        .text-content { background: var(--bg-darker); padding: 2rem; border: 2px solid #333; text-align: left; }
+
+        @media (max-width: 600px) { .navbar { flex-direction: column; padding: 1rem; gap: 1rem; } }
     </style>
 </head>
 <body>
-
     <nav class="navbar">
-        <div class="nav-logo">
-            <img src="logo.png" alt="Vactrinova Server">
-        </div>
+        <div class="nav-logo"><img src="logo.png" alt="Logo"></div>
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="rangos.html" class="active">Rangos</a></li> <li><a href="staff.html">Staff</a></li>
+            <li><a href="rangos.html" class="active">Rangos</a></li>
+            <li><a href="staff.html">Staff</a></li>
             <li><a href="cuenta.html">Cuenta</a></li>
         </ul>
     </nav>
 
-    <div class="page-container">
-        <h1 class="page-title">Rangos del Servidor</h1>
-
+    <div class="main-container">
+        <h1 class="page-title">RANGOS DEL SERVIDOR</h1>
+        
         <div class="text-content">
-            <p>Aquí puedes escribir toda la información sobre los rangos VIP, MVP, etc...</p>
+            <p>Aquí va la información sobre los rangos VIP, MVP, etc.</p>
             <br>
             <ul>
-                <li>- Rango Carbón</li>
-                <li>- Rango Hierro</li>
-                <li>- Rango Diamante</li>
+                <li>> Rango Carbón</li>
+                <li>> Rango Hierro</li>
+                <li>> Rango Diamante</li>
             </ul>
         </div>
     </div>
-
-    <footer>
-        <p>© 2025 Vactrinova Server.<br>This web is made by @VactricaKing.</p>
-    </footer>
-
 </body>
 </html>
