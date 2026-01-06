@@ -14,57 +14,49 @@
         body { background-color: var(--bg-dark); color: var(--text-white); font-family: 'Pixcon', monospace; font-size: 14px; min-height: 100vh; display: flex; flex-direction: column; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* NAVBAR CORREGIDA (Igual a las otras secciones) */
-        .navbar { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 1rem 2rem; 
-            background-color: var(--purple-face); 
-            border-bottom: 4px solid var(--purple-border); 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            z-index: 1000; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
-            min-height: 80px; 
-        }
+        /* NAVBAR UNIFICADA */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: var(--purple-face); border-bottom: 4px solid var(--purple-border); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); min-height: 80px; }
         .nav-logo img { height: 45px; width: auto; image-rendering: pixelated; }
         .nav-links { display: flex; gap: 1rem; list-style: none; }
         .nav-links a { text-transform: uppercase; font-size: 0.9rem; padding: 8px 12px; border-radius: 4px; font-weight: bold; white-space: nowrap; }
         .nav-links a:hover { background-color: rgba(0,0,0,0.2); }
         .nav-links a.active { background-color: var(--purple-border); color: #fff; box-shadow: inset 0 0 8px rgba(0,0,0,0.4); border: 2px solid #7a1e7a; }
 
-        /* CONTENEDOR PRINCIPAL */
+        /* CONTENEDOR UNIFICADO (Igual a Staff/Rangos) */
         .main-container { 
             padding: 140px 1rem 2rem 1rem; 
-            max-width: 900px; /* Unificado con los otros archivos */
+            max-width: 900px; 
             margin: 0 auto; 
             flex: 1; 
             text-align: center; 
             width: 100%; 
             display: flex; 
             flex-direction: column;
-            align-items: center;
         }
 
+        /* TÍTULO UNIFICADO */
         .page-title { 
-            font-size: 2.5rem; 
+            font-size: 2.2rem; 
+            color: var(--purple-face); 
+            border-bottom: 4px solid var(--purple-border); 
+            display: inline-block; 
             margin-bottom: 2rem; 
+            padding-bottom: 10px; 
             text-transform: uppercase; 
-            text-shadow: 4px 4px 0px #000; 
-            line-height: 1.2; 
+            text-shadow: 3px 3px 0 #000; 
+            white-space: nowrap; 
+            align-self: center; 
         }
         
+        /* CAJA DE CONTENIDO (Basada en text-content de las otras páginas) */
         .server-widget { 
-            background-color: var(--bg-darker); 
-            border: 4px solid var(--purple-border); 
-            padding: 30px; 
+            background-color: var(--bg-darker);
+            border: 4px solid #333; 
+            padding: 2.5rem; 
             width: 100%; 
-            max-width: 600px; 
-            box-shadow: 0 8px 0 #111; 
+            box-shadow: 0 8px 0 #111;
             margin: 0 auto;
+            text-align: center;
         }
 
         .server-status-container { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; background: rgba(0,0,0,0.4); padding: 10px 20px; border-radius: 6px; width: fit-content; margin-left: auto; margin-right: auto; border: 1px solid #444; }
@@ -92,14 +84,12 @@
 
         @media (max-width: 600px) {
             .navbar { flex-direction: column; padding: 0.8rem; gap: 0.5rem; justify-content: center; min-height: auto; }
-            .nav-logo img { height: 40px; }
             .nav-links { width: 100%; justify-content: center; gap: 5px; }
             .nav-links a { font-size: 0.7rem; padding: 6px 8px; }
 
             .main-container { padding-top: 160px; }
-            .page-title { font-size: 1.8rem; margin-bottom: 1.5rem; }
-            .server-widget { padding: 20px; }
-            .bedrock-btn { font-size: 0.9rem; padding: 12px; }
+            .page-title { font-size: 1.5rem; }
+            .server-widget { padding: 1.5rem; }
             .ip-text { font-size: 0.75rem; } 
         }
     </style>
@@ -116,7 +106,7 @@
     </nav>
 
     <div class="main-container">
-        <h1 class="page-title">Bienvenido a<br>Vactrinova</h1>
+        <h1 class="page-title">Bienvenido</h1>
         
         <div class="server-widget">
             <p style="font-size: 1rem; color:#ccc; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Versión 1.21.11</p>
