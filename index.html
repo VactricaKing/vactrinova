@@ -8,58 +8,80 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
         @font-face { font-family: 'Pixcon'; src: url('pixcon.ttf') format('truetype'); }
-        :root { --purple-face: #961996; --purple-border: #5e0f5e; --purple-shadow: #2e052e; --bg-dark: #1c1c1c; --bg-darker: #111111; --text-white: #e0e0e0; --minecraft-green: #3b8526; --minecraft-shadow: #1e4213; --status-online: #4CAF50; --status-offline: #ff5555; }
+        :root { --purple-face: #961996; --purple-border: #5e0f5e; --bg-dark: #1c1c1c; --bg-darker: #111111; --text-white: #e0e0e0; --minecraft-green: #3b8526; --minecraft-shadow: #1e4213; --status-online: #4CAF50; --status-offline: #ff5555; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* ESPACIO SUPERIOR PARA BARRA FIJA */
         body { background-color: var(--bg-dark); color: var(--text-white); font-family: 'Pixcon', monospace; padding-top: 120px; font-size: 14px; min-height: 100vh; display: flex; flex-direction: column; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* NAVBAR FIJA */
+        /* NAVBAR */
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; background-color: var(--purple-face); border-bottom: 4px solid var(--purple-border); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
         .nav-logo img { height: 40px; width: auto; image-rendering: pixelated; }
+        
         .nav-links { display: flex; gap: 1rem; list-style: none; }
-        .nav-links a { text-transform: uppercase; font-size: 0.9rem; padding: 8px 12px; border-radius: 4px; font-weight: bold; }
+        .nav-links a { 
+            text-transform: uppercase; font-size: 0.9rem; padding: 8px 12px; border-radius: 4px; font-weight: bold; 
+            white-space: nowrap; /* NO PARTIR TEXTO */
+        }
         .nav-links a:hover { background-color: rgba(0,0,0,0.2); }
         .nav-links a.active { background-color: var(--purple-border); color: #fff; box-shadow: inset 0 0 8px rgba(0,0,0,0.4); border: 2px solid #7a1e7a; }
 
-        /* HERO & WIDGET */
+        /* HERO */
         .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), #2a2a2a; padding: 2rem 1rem; margin-top: -20px; }
         .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; text-transform: uppercase; text-shadow: 4px 4px 0px #000; line-height: 1.2; }
-        .server-widget { background-color: rgba(0,0,0,0.7); border: 4px solid var(--purple-border); padding: 25px; width: 100%; max-width: 450px; margin: 2rem 0; box-shadow: 0 0 25px rgba(150, 25, 150, 0.15); }
+        
+        /* WIDGET DEL SERVIDOR */
+        .server-widget { 
+            background-color: rgba(0,0,0,0.7); 
+            border: 4px solid var(--purple-border); 
+            padding: 30px; 
+            width: 100%; 
+            max-width: 850px; /* Ancho completo igual que las otras secciones */
+            margin: 2rem 0; 
+            box-shadow: 0 0 25px rgba(150, 25, 150, 0.15); 
+        }
 
-        /* FOCO ALINEADO */
-        .server-status-container { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px; background: rgba(0,0,0,0.4); padding: 8px 15px; border-radius: 6px; width: fit-content; margin-left: auto; margin-right: auto; border: 1px solid #444; }
+        .server-status-container { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; background: rgba(0,0,0,0.4); padding: 10px 20px; border-radius: 6px; width: fit-content; margin-left: auto; margin-right: auto; border: 1px solid #444; }
         .status-dot { width: 12px; height: 12px; border-radius: 50%; background: #555; display: block; }
-        .status-text { font-size: 0.9rem; font-weight: bold; line-height: 1; margin-top: 2px; }
+        .status-text { font-size: 1rem; font-weight: bold; line-height: 1; margin-top: 2px; white-space: nowrap; }
         .status-online .status-dot { background: var(--status-online); box-shadow: 0 0 8px var(--status-online); }
         .status-online .status-text { color: var(--status-online); }
         .status-offline .status-dot { background: var(--status-offline); box-shadow: 0 0 8px var(--status-offline); }
         .status-offline .status-text { color: var(--status-offline); }
 
-        /* BOTÓN 3D BEDROCK */
+        /* BOTONES */
         .bedrock-btn { 
             display: block; width: 100%; background: var(--minecraft-green); color: white; padding: 15px; 
-            font-weight: bold; text-transform: uppercase; font-size: 1rem;
-            border: 4px solid var(--minecraft-shadow);
-            border-top-color: #5cb842; border-left-color: #5cb842; 
-            box-shadow: 0 6px 0 #152e0d; /* Sombra sólida */
-            text-shadow: 2px 2px 0 #1e4213; margin-bottom: 20px; position: relative; top: 0; transition: 0.1s;
+            font-weight: bold; text-transform: uppercase; font-size: 1.1rem;
+            border: 4px solid var(--minecraft-shadow); border-top-color: #5cb842; border-left-color: #5cb842; 
+            box-shadow: 0 6px 0 #152e0d; text-shadow: 2px 2px 0 #1e4213; margin-bottom: 20px; position: relative; top: 0; transition: 0.1s;
+            white-space: nowrap; /* OBLIGATORIO: UNA SOLA LÍNEA */
         }
-        .bedrock-btn:active { top: 6px; box-shadow: 0 0 0 #152e0d; } /* Efecto hundir */
+        .bedrock-btn:active { top: 6px; box-shadow: 0 0 0 #152e0d; }
 
-        /* CAJA IP */
         .ip-box-container { background: #080808; border: 2px dashed #666; padding: 15px; cursor: pointer; transition: 0.2s; }
         .ip-box-container:active { background: #222; transform: scale(0.98); }
-        .ip-text { font-family: monospace; font-size: 1.1rem; word-break: break-all; color: #fff; }
+        .ip-text { font-family: monospace; font-size: 1.2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; }
 
-        footer { padding: 2rem; text-align: center; background-color: black; color: var(--text-gray); font-size: 0.7rem; margin-top: auto; }
+        footer { padding: 2rem; text-align: center; background-color: black; color: #a0a0a0; font-size: 0.7rem; margin-top: auto; }
 
+        /* --- MÓVIL (AJUSTES DE TAMAÑO) --- */
         @media (max-width: 600px) {
-            .navbar { flex-direction: column; padding: 1rem; gap: 0.8rem; }
+            .navbar { flex-direction: column; padding: 0.5rem; gap: 0.5rem; }
+            .nav-logo img { height: 35px; }
+            
+            /* MENU EN HILERA (Horizontal) */
+            .nav-links { width: 100%; justify-content: center; gap: 5px; }
+            .nav-links a { font-size: 0.7rem; padding: 6px 8px; } /* Letra pequeña para que quepan */
+
             .hero h1 { font-size: 1.8rem; }
+            
+            /* Botones más pequeños pero en una línea */
+            .bedrock-btn { font-size: 0.8rem; padding: 12px; }
             .ip-text { font-size: 0.9rem; }
-            body { padding-top: 140px; }
+            
+            body { padding-top: 130px; }
+            .server-widget { padding: 15px; }
         }
     </style>
 </head>
@@ -78,7 +100,7 @@
         <h1>Bienvenido a<br>Vactrinova</h1>
         
         <div class="server-widget">
-            <p style="font-size: 0.9rem; color:#ccc; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Versión 1.21.11</p>
+            <p style="font-size: 1rem; color:#ccc; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Versión 1.21.11</p>
             
             <div id="statusContainer" class="server-status-container status-offline">
                 <div class="status-dot"></div>
